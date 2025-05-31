@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study_Timer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<audio id="alarmSound" preload="auto">
+    <source src="{{ url_for('static', filename='alarm.mp3') }}" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+
+    <div class="img">
+            <img src="static/photos/img.png" alt="Description of your image">
+
+            <div class="overlay-text">
+                 <h2>Foucs!</h2>
+            </div>
+    </div>
+
+    <div class="timer-box">
+        <h2>Study-Timer</h2>
+        <div id="timer">00:00</div>
+        <input type="number" id="minutes" placeholder="Enter minutes = " min="1">
+        <br>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="resetTimer()">restart</button>
+
+    </div>
+<script>
+    let countdown; // Global timer variable
+    let totalSeconds = 0;
+
+    function startTimer() {
+        const input = document.getElementById("minutes");
+        const mins = parseInt(input.value);
+
+        if (isNaN(mins) || mins <= 0) {
+            alert("Please enter a valid number of minutes.");
+            return;
+        }
+
+        totalSeconds = mins * 60;
+        updateDisplay();
+
+        clearInterval(countdown);
+        countdown = setInterval(() => {
+            totalSeconds--;
+            if (totalSeconds < 0) {
+                clearInterval(countdown);
+                document.getElementById("timer").textContent = "00:00";
+
+                // Play sound when timer ends
+                const sound = document.getElementById("alarmSound");
+                sound.pause();               // Reset if already playing
+                sound.currentTime = 0;       // Start from beginning
+                sound.play().catch((e) => {
+                    console.error("Audio play failed:", e);
+                });
+
+                alert("Time's up!");
+                return;
+            }
+            updateDisplay();
+        }, 1000);
+    }
+
+    function updateDisplay() {
+        const min = Math.floor(totalSeconds / 60);
+        const sec = totalSeconds % 60;
+        document.getElementById("timer").textContent =
+            `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+    }
+
+    function resetTimer() {
+        clearInterval(countdown);
+        totalSeconds = 0;
+        document.getElementById("timer").textContent = "00:00";
+    }
+</script>
+
+</body>
+</html>

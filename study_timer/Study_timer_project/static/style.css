@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+}
+.overlay-text {
+    font-family: 'lobster',cursive;
+    position: absolute;
+    top: 40px; /* distance from top */
+    left: 50px; /* distance from left */
+    color: rgb(255, 255, 255); /* change to black if needed */
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #A55233; /* semi-transparent background */
+    padding: 20px;
+    border-radius: 20px;
+}
+.timer-box,
+.overlay-timer {
+    font-family: 'lobster',cursive;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #D1C09F;
+    display: inline-block;
+    border: 1px solid #4A453F;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#timer {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 18px;
+    margin: 5px;
+}
+/* Styles for the Start and Restart buttons */
+.timer-box button { /* Targeting buttons directly within timer-box */
+    /* Background and Text Colors */
+    background-color: #7A675B; /* Medium, warm grey-brown */
+    color: #FFFFFF;           /* Pure White text */
+
+    /* Font and Text Styling */
+    font-family: 'Inter', sans-serif; /* Use Inter for button text */
+    font-size: 1em;          /* Readable font size */
+    font-weight: 600;        /* Semi-bold text for buttons */
+    text-align: center;
+    text-decoration: none;
+
+    /* Padding and Border */
+    padding: 10px 20px;      /* More padding for larger buttons */
+    border: none;            /* No default border */
+    border-radius: 8px;      /* Rounded corners */
+    cursor: pointer;         /* Indicate clickable */
+
+    /* Spacing between buttons */
+    margin: 0 10px;          /* Space buttons apart */
+
+    /* Transition for smooth hover effect */
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for buttons */
+}
