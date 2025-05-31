@@ -26,15 +26,5 @@ It also features:
 * JavaScript
 * Audio notification
 
-## 📷 Screenshot
 
-*Add a screenshot of your webpage here if you'd like.*
 
-## 🚀 How to Run It
-
-1. Clone this repo:
-
-   ```bash
-   git clone https://github.com/your-username/study_timer.git
-   cd study_timer
-   ```
