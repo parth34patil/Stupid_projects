@@ -1,4 +1,4 @@
-# 1.⏳ Study Timer (My First Project)
+# 1.⏳ Study Timer 
 
 Welcome to **Study Timer** 🎉
 This project is built using **Python (Flask)**, **HTML**, **CSS**, and **JavaScript**.
